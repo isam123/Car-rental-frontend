@@ -1,0 +1,14 @@
+
+.search-background {
+    background-color: rgb(39 43 43 / 78%);
+    height: 200px;
+    margin-bottom: 10px;
+}
+.srch-input {
+    border-radius: 0%;
+}
+.srch-title {
+    color: white;
+    margin-left: 0px;
+    font-style: italic;
+}
