@@ -1,39 +1,45 @@
 import React, { Component, useEffect } from 'react';
 import './App.css';
-
-
-import NavBar from '../../UiComponent/NavBar/NavBar';
 import Container from '../Container/Container';
-import Filter from '../../UiComponent/FilterBar/Filter';
-import Search from '../../UiComponent/Search/Search';
+import HomeLoader from '../../UiComponent/Loader/HomeLoader';
 
  class App extends Component {
 
+    constructor(props) {
+            super(props);
+    this.state={
+        isPreRender:true
+    };
 
-    renderNavbar() {
-      return <NavBar></NavBar>;
     }
-    renderSearch() {
-        return <Search></Search>
+
+    componentDidMount() {
+        setTimeout(() => {
+        this.setState({isPreRender:false})
+    }, 1000);
+        
     }
-    renderFilter() {
-        return <Filter></Filter>
+   
+
+    
+    renderLoader() {
+        return <HomeLoader></HomeLoader>
     }
+
     renderContainer() {
         return <Container></Container>
     }
+   
     
 
 render() {
-    return (
-     <div>
-     {this.renderNavbar()}
-     {this.renderSearch()}
-     {this.renderFilter()}   
-     {this.renderContainer()}
-     </div>
-      );
 
+    return (
+
+    <div>
+       { !this.state.isPreRender ? this.renderContainer():this.renderLoader()}
+        </div>   
+      );
   }
 }
   
